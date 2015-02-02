@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Date Jobs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @date_jobs.each do |date_job| %>
+      <tr>
+        <td><%= date_job.id %></td>
+        <td><%= link_to date_job.date, date_job %></td>
+        <td><%= link_to 'Edit', edit_date_job_path(date_job) %></td>
+        <td><%= link_to 'Destroy', date_job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Date job', new_date_job_path %>
