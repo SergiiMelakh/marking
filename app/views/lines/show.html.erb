@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @line.name %>
+</p>
+
+<p>
+  <strong style="vertical-align: top">View:</strong>
+  <%= image_tag(@line.view) %>
+</p>
+
+<p>
+  <strong>Describe:</strong>
+  <%= @line.describe %>
+</p>
+
+<%= link_to 'Edit', edit_line_path(@line) %> |
+<%= link_to 'Back', lines_path %>
