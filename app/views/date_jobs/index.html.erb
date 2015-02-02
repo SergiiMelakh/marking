@@ -15,7 +15,7 @@
     <% @date_jobs.each do |date_job| %>
       <tr>
         <td><%= date_job.id %></td>
-        <td><%= link_to date_job.date, date_job %></td>
+        <td><%= link_to date_job.date.strftime("%d/%m/%Y"), date_job %></td>
         <td><%= link_to 'Edit', edit_date_job_path(date_job) %></td>
         <td><%= link_to 'Destroy', date_job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
