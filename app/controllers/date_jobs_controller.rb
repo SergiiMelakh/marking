@@ -15,10 +15,12 @@ class DateJobsController < ApplicationController
   # GET /date_jobs/new
   def new
     @date_job = DateJob.new
+    3.times {@date_job.jobs.build}
   end
 
   # GET /date_jobs/1/edit
   def edit
+    3.times {@date_job.jobs.build}
   end
 
   # POST /date_jobs
@@ -69,6 +71,7 @@ class DateJobsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def date_job_params
-      params.require(:date_job).permit(:date)
+      params.require(:date_job).permit(:date, jobs_attributes: [:id, :date_job_id, :line_id, :square, :street_id, :house, :note, :_destroy])
     end
 end
+

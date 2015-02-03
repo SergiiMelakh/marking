@@ -15,6 +15,31 @@
     <%= f.label :date %><br>
     <%= f.date_select :date, order: [:day, :month, :year] %>
   </div>
+
+    <table>
+      <tr>
+        <th>Line</th>
+        <th>Square</th>
+        <th>Street</th>
+        <th>House</th>
+        <th>Note</th>
+        <th colspan="2"></th>
+
+      </tr>
+
+      <%= f.fields_for :jobs do |job| %>
+      <tr>
+        <td><%= job.collection_select(:line_id, Line.order(:name), :id, :name) %></td>
+        <td><%= job.text_field :square %></td>
+        <td><%= job.collection_select(:street_id, Street.order(:street), :id, :street) %></td>
+        <td><%= job.text_field :house %></td>
+        <td><%= job.text_field :note %></td>
+        <td><%= job.check_box :_destroy%></td>
+        <td><%= job.label :_destroy, "Remove" %></td>
+
+      <% end %>
+      </tr>
+    </table>
   <div class="actions">
     <%= f.submit %>
   </div>

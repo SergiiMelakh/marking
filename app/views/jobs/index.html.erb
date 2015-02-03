@@ -18,10 +18,10 @@
   <tbody>
     <% @jobs.each do |job| %>
       <tr>
-        <td><%= job.date_job %></td>
-        <td><%= job.line %></td>
+        <td><%= job.date_job.date %></td>
+        <td><%= job.line.name %></td>
         <td><%= job.square %></td>
-        <td><%= job.street %></td>
+        <td><%= job.street.street %></td>
         <td><%= job.house %></td>
         <td><%= job.note %></td>
         <td><%= link_to 'Show', job %></td>
