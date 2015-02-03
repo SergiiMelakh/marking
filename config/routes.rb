@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :jobs
+
   resources :date_jobs
 
   resources :streets
