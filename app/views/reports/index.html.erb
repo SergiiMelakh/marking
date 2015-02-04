@@ -1,10 +1,5 @@
 <h1>Listing Jobs from <%= @date_start.strftime("%d/%m/%Y")%> to <%= @date_end.strftime("%d/%m/%Y") %>.</h1>
 
-<% if @jobs_period.empty? %>
-  
-  <p>Not found records for this period </p>
-  <% else%>
-
 <table border="1">
   <tr>
     <th>ID</th>
@@ -16,8 +11,8 @@
     <th>Notes</th>
   </tr>
 
-<% @jobs_period.each do |p| %>
-  <% p.jobs.each do |j| %>
+<% @jobs_period.each do |j| %>
+  
   <tr>
     <td><%= j.id %></td>
     <td><%= j.date_job.date.strftime("%d/%m/%Y") %></td>
@@ -28,6 +23,6 @@
     <td><%= j.note %></td>
   </tr>
   <% end %>
- <% end %>
+
 </table>
-<% end %>
+
