@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_job_id: 
+  line_id: 
+  square: 1.5
+  street_id: 
+  house: MyString
+  note: MyString
+
+two:
+  date_job_id: 
+  line_id: 
+  square: 1.5
+  street_id: 
+  house: MyString
+  note: MyString

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150202131853) do
+ActiveRecord::Schema.define(version: 20150203081526) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,21 @@ ActiveRecord::Schema.define(version: 20150202131853) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "jobs", force: :cascade do |t|
+    t.integer  "date_job_id"
+    t.integer  "line_id"
+    t.float    "square"
+    t.integer  "street_id"
+    t.string   "house"
+    t.string   "note"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "jobs", ["date_job_id"], name: "index_jobs_on_date_job_id", using: :btree
+  add_index "jobs", ["line_id"], name: "index_jobs_on_line_id", using: :btree
+  add_index "jobs", ["street_id"], name: "index_jobs_on_street_id", using: :btree
 
   create_table "lines", force: :cascade do |t|
     t.string   "name"
@@ -36,4 +51,7 @@ ActiveRecord::Schema.define(version: 20150202131853) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "jobs", "date_jobs"
+  add_foreign_key "jobs", "lines"
+  add_foreign_key "jobs", "streets"
 end

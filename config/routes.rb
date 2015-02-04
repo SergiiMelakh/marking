@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  root 'welcome#index'
+  get 'reports/filter'  => "reports#filter"
+  post 'reports/index'   => "reports#index"  
+
+  resources :jobs
+
   resources :date_jobs
 
   resources :streets

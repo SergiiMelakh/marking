@@ -1,0 +1,28 @@
+<h1>Listing Jobs from <%= @date_start.strftime("%d/%m/%Y")%> to <%= @date_end.strftime("%d/%m/%Y") %>.</h1>
+
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Date</th>
+    <th>Line</th>
+    <th>Square</th>
+    <th>Street</th>
+    <th>Hous</th>
+    <th>Notes</th>
+  </tr>
+
+<% @jobs_period.each do |j| %>
+  
+  <tr>
+    <td><%= j.id %></td>
+    <td><%= j.date_job.date.strftime("%d/%m/%Y") %></td>
+    <td><%= j.line.name %></td>
+    <td><%= j.square %></td>
+    <td><%= j.street.street %></td>
+    <td><%= j.house %></td>
+    <td><%= j.note %></td>
+  </tr>
+  <% end %>
+
+</table>
+
