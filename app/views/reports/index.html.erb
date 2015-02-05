@@ -32,12 +32,12 @@
 </table>
 
   <ul>
-    <% @sum_marking.each do |key, val| %>
-      <li><%= key %> - <%= val %> m2</li>
+    <% @sum_marking.sort.each do |key, val| %>
+      <li><%= key %> - <%= val.to_s(:rounded, :precision => 2) %> m2</li>
     <% end %>
   </ul>
 
-<strong>SUM MARKING IS : <%= @sum_all_marking %>m2</strong>
+<strong>SUM MARKING IS : <%= @sum_all_marking.to_s(:rounded, :precision => 2) %>m2</strong>
 
 <% end %>
 
