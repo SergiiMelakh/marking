@@ -19,12 +19,11 @@
     <table>
       <tr>
         <th>Line</th>
-        <th>Square</th>
+        <th>Square, m2</th>
         <th>Street</th>
         <th>House</th>
         <th>Note</th>
         <th colspan="2"></th>
-
       </tr>
 
       <%= f.fields_for :jobs do |job| %>
@@ -35,7 +34,7 @@
         <td><%= job.text_field :house %></td>
         <td><%= job.text_field :note %></td>
         <td><%= job.check_box :_destroy%></td>
-        <td><%= job.label :_destroy, "Remove" %></td>
+        <td><%= job.label :_destroy, t("Remove") %></td>
 
       <% end %>
       </tr>

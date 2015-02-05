@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Streets</h1>
-<%= link_to 'New Street', new_street_path %>
+<%= link_to t('New Street'), new_street_path %>
 
 <table>
   <thead>
@@ -17,8 +17,8 @@
       <tr>
         <td><%= street.id %></td>
         <td><%= street.street %></td>
-        <td><%= link_to 'Edit', edit_street_path(street) %></td>
-        <td><%= link_to 'Destroy', street, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t('Edit'), edit_street_path(street) %></td>
+        <td><%= link_to t('Destroy'), street, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Street', new_street_path %>
+<%= link_to t('New Street'), new_street_path %>
