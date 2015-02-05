@@ -1,12 +1,7 @@
 source 'https://rubygems.org'
 
-<<<<<<< HEAD
-
-
-gem 'i18n'
-=======
 ruby '2.2.0'
->>>>>>> dca230f81257954af5cc36f18bac82ee58d6a5e7
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record
