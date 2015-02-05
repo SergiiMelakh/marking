@@ -1,0 +1,7 @@
+ru:
+  activerecord:
+    models:
+      date_job: 'Дата'
+    attributes:
+      date_job:
+        date: "Дата"
