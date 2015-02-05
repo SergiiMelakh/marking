@@ -3,10 +3,12 @@
 <strong>Date:</strong>
 <%= @date_job.date.strftime("%d/%m/%Y") %>
 </p>
-<ul>
-<% @date_job.jobs.each do |job| %>
-<li> <%= job.id %> - <%= job.square %></li>
-<% end %>
-</ul>
+
+  <ul>
+  <% @date_job.jobs.each do |job| %>
+    <li> <%= job.id %> - <%= job.square %></li>
+    <% end %>
+  </ul>
+
 <%= link_to 'Edit', edit_date_job_path(@date_job) %> |
 <%= link_to 'Back', date_jobs_path %>

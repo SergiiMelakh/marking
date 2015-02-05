@@ -1,5 +1,10 @@
 <h1>Listing Jobs from <%= @date_start.strftime("%d/%m/%Y")%> to <%= @date_end.strftime("%d/%m/%Y") %>.</h1>
 
+<% if @jobs_period.empty? %>
+<hr>
+  <p><h3>Not found records for this period or street</h3></p>
+<% else %>
+
 <table border="1">
   <tr>
     <th>ID</th>
@@ -25,4 +30,14 @@
   <% end %>
 
 </table>
+
+  <ul>
+    <% @sum_marking.each do |key, val| %>
+      <li><%= key %> - <%= val %> m2</li>
+    <% end %>
+  </ul>
+
+<strong>SUM MARKING IS : <%= @sum_all_marking %>m2</strong>
+
+<% end %>
 

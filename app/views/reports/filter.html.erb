@@ -1,4 +1,4 @@
-<h1>Report#filter</h1>
+<h1>Filter of report</h1>
 <%= form_for(:filter, url: reports_index_path) do |f| %>
   <p>Date begin: <%= select_date(Date.new(2015, 1, 1), order: [:day, :month, :year], prefix: :date_start) %></p><br />
   <p>Date end  : <%= select_date Date.today, order: [:day, :month, :year], prefix: :date_end %></p><br />
