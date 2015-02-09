@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date act:</strong>
+  <%= @act.date_act %>
+</p>
+
+<p>
+  <strong>Number act:</strong>
+  <%= @act.number_act %>
+</p>
+
+<p>
+  <strong>Money:</strong>
+  <%= @act.money %>
+</p>
+
+<p>
+  <strong>Street:</strong>
+  <%= @act.street %>
+</p>
+
+<%= link_to 'Edit', edit_act_path(@act) %> |
+<%= link_to 'Back', acts_path %>

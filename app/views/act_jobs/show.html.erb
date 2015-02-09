@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Act:</strong>
+  <%= @act_job.act %>
+</p>
+
+<p>
+  <strong>Line:</strong>
+  <%= @act_job.line %>
+</p>
+
+<p>
+  <strong>Square:</strong>
+  <%= @act_job.square %>
+</p>
+
+<p>
+  <strong>Machine:</strong>
+  <%= @act_job.machine %>
+</p>
+
+<%= link_to 'Edit', edit_act_job_path(@act_job) %> |
+<%= link_to 'Back', act_jobs_path %>

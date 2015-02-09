@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  act_id: 
+  line_id: 
+  square: 1.5
+  machine: 1
+
+two:
+  act_id: 
+  line_id: 
+  square: 1.5
+  machine: 1
