@@ -11,10 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150203081526) do
+ActiveRecord::Schema.define(version: 20150209134911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "act_jobs", force: :cascade do |t|
+    t.integer  "act_id"
+    t.integer  "line_id"
+    t.float    "square"
+    t.integer  "machine"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "act_jobs", ["act_id"], name: "index_act_jobs_on_act_id", using: :btree
+  add_index "act_jobs", ["line_id"], name: "index_act_jobs_on_line_id", using: :btree
+
+  create_table "acts", force: :cascade do |t|
+    t.integer  "date_act_id"
+    t.integer  "number_act"
+    t.float    "money"
+    t.integer  "street_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "acts", ["date_act_id"], name: "index_acts_on_date_act_id", using: :btree
+  add_index "acts", ["street_id"], name: "index_acts_on_street_id", using: :btree
+
+  create_table "date_acts", force: :cascade do |t|
+    t.date     "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "date_jobs", force: :cascade do |t|
     t.date     "date"
@@ -51,6 +81,10 @@ ActiveRecord::Schema.define(version: 20150203081526) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "act_jobs", "acts"
+  add_foreign_key "act_jobs", "lines"
+  add_foreign_key "acts", "date_acts"
+  add_foreign_key "acts", "streets"
   add_foreign_key "jobs", "date_jobs"
   add_foreign_key "jobs", "lines"
   add_foreign_key "jobs", "streets"
