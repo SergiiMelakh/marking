@@ -13,8 +13,7 @@
   <tbody>
     <% @date_acts.each do |date_act| %>
       <tr>
-        <td><%= date_act.date.strftime("%m/%Y") %></td>
-        <td><%= link_to 'Show', date_act %></td>
+        <td><%= link_to date_act.date.strftime("%m/%Y"), date_act %></td>
         <td><%= link_to 'Edit', edit_date_act_path(date_act) %></td>
         <td><%= link_to 'Destroy', date_act, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

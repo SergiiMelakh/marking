@@ -16,42 +16,48 @@
     <%= f.date_select :date, order: [:month, :year] %>
   </div>
 
-    <table>
-      <tr>
-        <th>Number_act</th>
-        <th>Money</th>
-        <th colspan="2"></th>
-      </tr>
-    
-      <%= f.fields_for :acts do |act| %>  
-      <tr>     
+
+  <table>
+    <tr>
+      <th>NumberAct</th><th>Street</th><th>Money</th><th colspan="2"></th>
+    </tr>
+
+    <%= f.fields_for :acts do |act| %>  
+      <tr>            
         <td><%= act.text_field :number_act %></td>
+        <td><%= act.collection_select(:street_id, Street.order(:street), :id, :street) %></td> 
         <td><%= act.text_field :money %></td> 
         <td><%= act.check_box :_destroy%></td>
         <td><%= act.label :_destroy, "Remove" %></td>       
       </tr>
-      
 
-        <table>
-          <tr>
-            <th>Line_ID</th>
-            <th>Square, m2</th>
-            <th colspan="2"></th>
-          </tr>
+      <tr>
+        <th></th>
+        <th>LineID</th>
+        <th>Square</th>
+        <th></th>
+        <th></th>
+      </tr>
 
-           <%= act.fields_for :act_jobs do |act_job| %>  
-            <tr>     
+          <%= act.fields_for :act_jobs do |act_job| %>  
+            <tr>
+              <td></td>     
               <td><%= act_job.collection_select(:line_id, Line.order(:name), :id, :name) %></td>
               <td><%= act_job.text_field :square %></td> 
               <td><%= act_job.check_box :_destroy%></td>
               <td><%= act_job.label :_destroy, "Remove" %></td>       
             </tr>
-            <% end %>
-            <% end %>
-        </table>
 
-      
-    </table>
+          <% end %>
+            <tr>
+              <td colspan="5"><hr></td>
+            </tr>
+        <% end %>
+
+  </table>  
+
+
+
 
   <div class="actions">
     <%= f.submit %>

@@ -6,12 +6,14 @@
 </p>
 	<ul>
 		<% @date_act.acts.each do |act| %>
-			<li><%= act.id %> - <%= act.number_act %> - <%= act.money %></li>
-				<ul>
+			<li><strong><%= act.number_act %> - <%= act.street.street %> - <%= act.money %>, HRN</strong></li>
+				
 					<% act.act_jobs.each do |act_job| %>
-						<li><%= act_job.id %> - <%= act_job.line_id %> - <%= act_job.square %></li>
+				<ul>
+						<li><%= act_job.line.name %> - <%= act_job.square %>, m2</li>
 				</ul>
 				<% end %>
+				<hr>
 		<% end %>
 	</ul>
 <%= link_to 'Edit', edit_date_act_path(@date_act) %> |

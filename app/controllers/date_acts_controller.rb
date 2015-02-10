@@ -78,7 +78,7 @@ class DateActsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def date_act_params
       params.require(:date_act).permit(:date, 
-              acts_attributes: [:id, :date_act_id, :money, :number_act, :_destroy, 
+              acts_attributes: [:id, :date_act_id, :money, :number_act, :street_id, :_destroy, 
                   act_jobs_attributes: [:id, :act_id, :line_id, :square, :machine, :_destroy]])
     end
 end
