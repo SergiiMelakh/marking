@@ -13,8 +13,46 @@
 
   <div class="field">
     <%= f.label :date %><br>
-    <%= f.date_select :date %>
+    <%= f.date_select :date, order: [:month, :year] %>
   </div>
+
+    <table>
+      <tr>
+        <th>Number_act</th>
+        <th>Money</th>
+        <th colspan="2"></th>
+      </tr>
+    
+      <%= f.fields_for :acts do |act| %>  
+      <tr>     
+        <td><%= act.text_field :number_act %></td>
+        <td><%= act.text_field :money %></td> 
+        <td><%= act.check_box :_destroy%></td>
+        <td><%= act.label :_destroy, "Remove" %></td>       
+      </tr>
+      
+
+        <table>
+          <tr>
+            <th>Line_ID</th>
+            <th>Square, m2</th>
+            <th colspan="2"></th>
+          </tr>
+
+           <%= act.fields_for :act_jobs do |act_job| %>  
+            <tr>     
+              <td><%= act_job.collection_select(:line_id, Line.order(:name), :id, :name) %></td>
+              <td><%= act_job.text_field :square %></td> 
+              <td><%= act_job.check_box :_destroy%></td>
+              <td><%= act_job.label :_destroy, "Remove" %></td>       
+            </tr>
+            <% end %>
+            <% end %>
+        </table>
+
+      
+    </table>
+
   <div class="actions">
     <%= f.submit %>
   </div>

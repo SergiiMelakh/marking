@@ -15,10 +15,18 @@ class DateActsController < ApplicationController
   # GET /date_acts/new
   def new
     @date_act = DateAct.new
+    2.times do 
+      act = @date_act.acts.build
+      4.times { act.act_jobs.build }
+    end
   end
 
   # GET /date_acts/1/edit
   def edit
+    2.times do 
+      act = @date_act.acts.build
+      3.times { act.act_jobs.build }
+    end
   end
 
   # POST /date_acts
@@ -69,6 +77,8 @@ class DateActsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def date_act_params
-      params.require(:date_act).permit(:date)
+      params.require(:date_act).permit(:date, 
+              acts_attributes: [:id, :date_act_id, :money, :number_act, :_destroy, 
+                  act_jobs_attributes: [:id, :act_id, :line_id, :square, :machine, :_destroy]])
     end
 end

@@ -2,8 +2,17 @@
 
 <p>
   <strong>Date:</strong>
-  <%= @date_act.date %>
+  <%= @date_act.date.strftime("%m/%Y") %>
 </p>
-
+	<ul>
+		<% @date_act.acts.each do |act| %>
+			<li><%= act.id %> - <%= act.number_act %> - <%= act.money %></li>
+				<ul>
+					<% act.act_jobs.each do |act_job| %>
+						<li><%= act_job.id %> - <%= act_job.line_id %> - <%= act_job.square %></li>
+				</ul>
+				<% end %>
+		<% end %>
+	</ul>
 <%= link_to 'Edit', edit_date_act_path(@date_act) %> |
 <%= link_to 'Back', date_acts_path %>
