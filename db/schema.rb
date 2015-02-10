@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150209134911) do
+ActiveRecord::Schema.define(version: 20150210141120) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,10 +19,10 @@ ActiveRecord::Schema.define(version: 20150209134911) do
   create_table "act_jobs", force: :cascade do |t|
     t.integer  "act_id"
     t.integer  "line_id"
-    t.float    "square"
+    t.float    "square",     default: 0.0
     t.integer  "machine"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   add_index "act_jobs", ["act_id"], name: "index_act_jobs_on_act_id", using: :btree
@@ -31,10 +31,10 @@ ActiveRecord::Schema.define(version: 20150209134911) do
   create_table "acts", force: :cascade do |t|
     t.integer  "date_act_id"
     t.integer  "number_act"
-    t.float    "money"
+    t.float    "money",       default: 0.0
     t.integer  "street_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   add_index "acts", ["date_act_id"], name: "index_acts_on_date_act_id", using: :btree
@@ -55,12 +55,12 @@ ActiveRecord::Schema.define(version: 20150209134911) do
   create_table "jobs", force: :cascade do |t|
     t.integer  "date_job_id"
     t.integer  "line_id"
-    t.float    "square"
+    t.float    "square",      default: 0.0
     t.integer  "street_id"
     t.string   "house"
     t.string   "note"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   add_index "jobs", ["date_job_id"], name: "index_jobs_on_date_job_id", using: :btree
