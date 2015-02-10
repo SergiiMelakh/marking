@@ -23,9 +23,11 @@ class DateActsController < ApplicationController
 
   # GET /date_acts/1/edit
   def edit
+    @date_act.acts.each { |act| 3.times {act.act_jobs.build} }
+
     2.times do 
       act = @date_act.acts.build
-      3.times { act.act_jobs.build }
+      4.times { act.act_jobs.build }
     end
   end
 
