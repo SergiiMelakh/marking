@@ -1,0 +1,7 @@
+            <tr>
+              <td></td>     
+              <td><%= aj.collection_select(:line_id, Line.order(:name), :id, :name) %></td>
+              <td><%= aj.text_field :square %></td> 
+              <td><%= aj.check_box :_destroy%></td>
+              <td><%= aj.label :_destroy, "Remove" %></td>       
+            </tr>
