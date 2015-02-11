@@ -4,8 +4,5 @@ class ActJob < ActiveRecord::Base
 
   validates :square, presence: true, numericality: {greater_than: 0.00}
 
-  before_save do
-  	self.square = self.square*1000*0.1
-  end
 
 end
