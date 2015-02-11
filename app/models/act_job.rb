@@ -4,5 +4,12 @@ class ActJob < ActiveRecord::Base
 
   validates :square, presence: true, numericality: {greater_than: 0.00}
 
+  before_create do
+  	self.square *= 1000 * 0.1 if self.line.name == '1.1'
+  end
+
+  before_update do
+  	self.square *= 1000 * 0.1 if self.line.name == '1.1'
+  end
 
 end
