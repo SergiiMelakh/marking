@@ -23,6 +23,13 @@ class DateActsController < ApplicationController
 
   # GET /date_acts/1/edit
   def edit
+    #Chenge KM/LIME to M2 for LINE 1.1
+    @date_act.acts.each do |act|
+      act.act_jobs.each do |act_job|
+        act_job.square /= 100 if act_job.line.name == '1.1'
+      end
+    end
+
     @date_act.acts.each { |act| 3.times {act.act_jobs.build} }
 
     2.times do 
