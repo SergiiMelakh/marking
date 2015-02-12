@@ -4,7 +4,7 @@ class DateJobsController < ApplicationController
   # GET /date_jobs
   # GET /date_jobs.json
   def index
-    @date_jobs = DateJob.all
+    @date_jobs = DateJob.order(:date)
   end
 
   # GET /date_jobs/1

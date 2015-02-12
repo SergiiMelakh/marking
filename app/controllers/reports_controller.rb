@@ -10,7 +10,7 @@ class ReportsController < ApplicationController
     @sum_marking = Hash.new
     
       if params[:filter][:street_id] == "1"
-        DateJob.where("date >= ? AND date <= ?", @date_start, @date_end).find_each do |dj|
+        DateJob.order(:date).where("date >= ? AND date <= ?", @date_start, @date_end).each do |dj|
             dj.jobs.each do |j|
              @jobs_period << j 
              marking = {"#{j.line.name}" => "#{j.square}".to_f}
@@ -19,7 +19,7 @@ class ReportsController < ApplicationController
          end
 
       else
-        DateJob.where("date >= ? AND date <= ?", @date_start, @date_end).find_each do |dj|
+        DateJob.order(:date).where("date >= ? AND date <= ?", @date_start, @date_end).each do |dj|
           dj.jobs.each do |j|
             if j.street_id == params[:filter][:street_id].to_i
               @jobs_period << j 

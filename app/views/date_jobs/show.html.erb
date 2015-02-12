@@ -6,7 +6,8 @@
 
   <ul>
   <% @date_job.jobs.each do |job| %>
-    <li> <%= job.id %> - <%= job.square %></li>
+    <li> <%= job.id %> - <%= job.line.name %> - <%= job.square %>,m2 - 
+<%= job.street.street %> - <%= job.house %> - <%= job.note %></li>
     <% end %>
   </ul>
 
