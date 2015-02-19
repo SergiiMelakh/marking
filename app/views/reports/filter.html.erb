@@ -1,8 +1,29 @@
-<h1>Filter of report</h1>
-<%= form_for(:filter, url: reports_index_path) do |f| %>
-  <p>Date begin: <%= select_date(Date.new(2015, 1, 1), order: [:day, :month, :year], prefix: :date_start) %></p><br />
-  <p>Date end  : <%= select_date Date.today, order: [:day, :month, :year], prefix: :date_end %></p><br />
-  <p>Street: <%= f.collection_select(:street_id, Street.order(:street), :id, :street) %></p>
-  
-<%= f.submit %>
+<h1>Поиск выполненных работ</h1>
+
+
+<table class="table table-hover">
+
+	<%= form_for(:filter, url: reports_index_path) do |f| %>
+      <tr>
+      	<th>Дата начала работ :</th>
+        <td><%= select_date(Date.new(2015, 1, 1), order: [:day, :month, :year], prefix: :date_start) %></td>             
+      </tr>
+
+      <tr>
+      	<th>Дата окончания работ :</th>
+        <td><%= select_date Date.today, order: [:day, :month, :year], prefix: :date_end %></td>
+      </tr>
+
+      <tr>
+      	<th>Улица :</th>
+        <td><%= f.collection_select(:street_id, Street.order(:id), :id, :street) %></td>
+      </tr>
+      
+</table>
+
+<%= f.submit :"Применить фильтр" %>
 <% end %>
+
+ 
+
+
