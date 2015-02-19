@@ -1,6 +1,6 @@
     <tr>            
         <td><%= a.text_field :number_act %></td>
-        <td><%= a.collection_select(:street_id, Street.order(:street), :id, :street) %></td> 
+        <td><%= a.collection_select(:street_id, Street.order(:id), :id, :street) %></td> 
         <td><%= a.text_field :money %></td> 
         <td><%= a.check_box :_destroy%></td>
         <td><%= a.label :_destroy, "Remove" %></td>       

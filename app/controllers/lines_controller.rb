@@ -4,7 +4,7 @@ class LinesController < ApplicationController
   # GET /lines
   # GET /lines.json
   def index
-    @lines = Line.all
+    @lines = Line.order(:id)
   end
 
   # GET /lines/1
