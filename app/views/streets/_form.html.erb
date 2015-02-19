@@ -12,10 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :street %><br>
+    <%= f.label :street, "Улица" %><br>
     <%= f.text_field :street %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+    <div class="actions">
+        <% if @street.new_record? %>
+        <%= f.submit :"Добавить" %>
+    <% else %>
+        <%= f.submit :"Изменить" %>
+    <% end %>
+
+
   </div>
 <% end %>

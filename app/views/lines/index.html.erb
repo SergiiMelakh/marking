@@ -1,12 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Lines</h1>
+<h1>Вид разметки</h1>
 
-<table>
+<br />
+<%= link_to 'Добавить вид разметки', new_line_path %>
+<br />
+
+<table class="table table-hover">
   <thead>
     <tr>
-      <th>ID</th>
-      <th>Name</th>
+      <th>№ п/п</th>
+      <th>Вид разметки</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,8 +20,8 @@
       <tr>
         <td><%= line.id %></td>
         <td><%= link_to line.name, line %></td>
-        <td><%= link_to 'Edit', edit_line_path(line) %></td>
-        <td><%= link_to 'Destroy', line, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Изменить', edit_line_path(line) %></td>
+        <td><%= link_to 'Удалить', line, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -25,4 +29,4 @@
 
 <br>
 
-<%= link_to 'New Line', new_line_path %>
+<%= link_to 'Добавить вид разметки', new_line_path %>

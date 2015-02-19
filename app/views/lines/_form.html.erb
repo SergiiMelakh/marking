@@ -12,18 +12,25 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :name, "Вид разметки" %><br>
     <%= f.text_field :name, size: 44 %>
   </div>
   <div class="field">
-    <%= f.label :view %><br>
+    <%= f.label :view, "Внешний вид" %><br>
     <%= f.text_field :view, size: 44 %>
   </div>
   <div class="field">
-    <%= f.label :describe %><br>
+    <%= f.label :describe, "Описание" %><br>
     <%= f.text_area :describe, rows: 8, cols: 50 %>
   </div>
+
   <div class="actions">
-    <%= f.submit %>
+
+    <% if @line.new_record? %>
+        <%= f.submit :"Добавить" %>
+    <% else %>
+        <%= f.submit :"Изменить" %>
+    <% end %>
+
   </div>
 <% end %>
