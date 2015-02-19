@@ -12,17 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :date %><br>
+    <%= f.label :date, "Дата" %><br>
     <%= f.date_select :date, order: [:day, :month, :year] %>
   </div>
 
-    <table>
+    <table class="table table-hover">
       <tr>
-        <th>Line</th>
-        <th>Square, m2</th>
-        <th>Street</th>
-        <th>House</th>
-        <th>Note</th>
+        <th>Вид разметки</th>
+        <th>Площадь, m2</th>
+        <th>Улица</th>
+        <th>Дом</th>
+        <th>Примечание</th>
         <th colspan="2"></th>
       </tr>
 
@@ -34,12 +34,16 @@
         <td><%= job.text_field :house %></td>
         <td><%= job.text_field :note %></td>
         <td><%= job.check_box :_destroy%></td>
-        <td><%= job.label :_destroy, t("Remove") %></td>
+        <td><%= job.label :_destroy, "Удалить" %></td>
 
       <% end %>
       </tr>
     </table>
   <div class="actions">
-    <%= f.submit %>
+    <% if @date_job.new_record? %>
+        <%= f.submit :"Добавить" %>
+    <% else %>
+        <%= f.submit :"Изменить" %>
+    <% end %>
   </div>
 <% end %>

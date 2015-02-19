@@ -1,15 +1,39 @@
 <p id="notice"><%= notice %></p>
 <p>
-<strong>Date:</strong>
-<%= @date_job.date.strftime("%d/%m/%Y") %>
+	<strong>Дата : <%= @date_job.date.strftime("%d/%m/%Y") %></strong>
 </p>
 
-  <ul>
-  <% @date_job.jobs.each do |job| %>
-    <li> <%= job.id %> - <%= job.line.name %> - <%= job.square %>,m2 - 
-<%= job.street.street %> - <%= job.house %> - <%= job.note %></li>
-    <% end %>
-  </ul>
 
-<%= link_to 'Edit', edit_date_job_path(@date_job) %> |
-<%= link_to 'Back', date_jobs_path %>
+<table class="table table-hover">
+      <tr>
+      	<th>№ п/п</th>
+        <th>Вид разметки</th>
+        <th>Площадь, m2</th>
+        <th>Улица</th>
+        <th>Дом</th>
+        <th>Примечание</th>
+       
+      </tr>
+
+     <% @date_job.jobs.each do |job| %>
+
+      <tr>
+        <td><%= job.id %></td>
+        <td><%= job.line.name %></td>
+        <td><%= job.square %></td>
+        <td><%= job.street.street %></td>
+        <td><%= job.house %></td>
+        <td><%= job.note %></td>
+    <% end %>
+
+      </tr>
+    </table>
+
+
+
+
+
+
+
+<%= link_to 'Изменить', edit_date_job_path(@date_job) %> |
+<%= link_to 'Показать все', date_jobs_path %>
