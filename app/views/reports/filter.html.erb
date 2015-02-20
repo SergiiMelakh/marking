@@ -1,9 +1,9 @@
 <h1>Поиск выполненных работ</h1>
 
-
+<%= form_for(:filter, url: reports_index_path) do |f| %>
 <table class="table table-hover">
 
-	<%= form_for(:filter, url: reports_index_path) do |f| %>
+	
       <tr>
       	<th>Дата начала работ :</th>
         <td><%= select_date(Date.new(2015, 1, 1), order: [:day, :month, :year], prefix: :date_start) %></td>   
@@ -18,11 +18,13 @@
       	<th>Улица :</th>
         <td><%= f.collection_select(:street_id, Street.order(:id), :id, :street) %></td>
       </tr>
-      
-</table>
+      </table>
+      <%= f.submit :"Поиск" %>
+      <% end %>
 
-<%= f.submit :"Поиск" %>
-<% end %>
+
+
+
 
  
 

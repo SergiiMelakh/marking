@@ -3,13 +3,13 @@
 <h1>Журнал ежедневный</h1>
 
 <br />
-<%= link_to 'Добавить новый день', new_date_job_path %>
+<%= link_to 'Добавить новую дату', new_date_job_path %>
 <br />
 
 <table class="table table-hover">
   <thead>
     <tr class="active">
-      <th>№ п/п</th>
+      
       <th>Дата</th>
       <th colspan="3"></th>
     </tr>
@@ -18,7 +18,7 @@
   <tbody>
     <% @date_jobs.each do |date_job| %>
       <tr>
-        <td><%= date_job.id %></td>
+        
         <td><%= link_to date_job.date.strftime("%d/%m/%Y"), date_job %></td>
         <td><%= link_to 'Изменить', edit_date_job_path(date_job) %></td>
         <td><%= link_to 'Удалить', date_job, method: :delete, data: { confirm: 'Вы уверены?' } %></td>

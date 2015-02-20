@@ -1,25 +1,24 @@
-<h1>Listing Jobs from <%= @date_start.strftime("%d/%m/%Y")%> to <%= @date_end.strftime("%d/%m/%Y") %>.</h1>
+<h1>Перечень работ с <%= @date_start.strftime("%d/%m/%Y")%> по <%= @date_end.strftime("%d/%m/%Y") %>.</h1>
 
 <% if @jobs_period.empty? %>
 <hr>
-  <p><h3>Not found records for this period or street</h3></p>
+  <p><h3>Записей не найдено</h3></p>
+<hr>
 <% else %>
 
-<table border="1">
-  <tr>
-    <th>ID</th>
-    <th>Date</th>
-    <th>Line</th>
-    <th>Square</th>
-    <th>Street</th>
-    <th>Hous</th>
-    <th>Notes</th>
+<table class="table table-hover">
+  <tr  class="active">  
+    <th>Дата</th>
+    <th>Вид разметки</th>
+    <th>Площадь, м2</th>
+    <th>Улица</th>
+    <th>Дом</th>
+    <th>Примечание</th>
   </tr>
 
 <% @jobs_period.each do |j| %>
   
-  <tr>
-    <td><%= j.id %></td>
+  <tr>   
     <td><%= j.date_job.date.strftime("%d/%m/%Y") %></td>
     <td><%= j.line.name %></td>
     <td><%= j.square %></td>
@@ -30,14 +29,14 @@
   <% end %>
 
 </table>
-
+<hr>
   <ul>
     <% @sum_marking.sort.each do |key, val| %>
       <li><%= key %> - <%= val.to_s(:rounded, :precision => 2) %> m2</li>
     <% end %>
   </ul>
 
-<strong>SUM MARKING IS : <%= @sum_all_marking.to_s(:rounded, :precision => 2) %>m2</strong>
+<strong>Всего : <%= @sum_all_marking.to_s(:rounded, :precision => 2) %>m2</strong>
 
 <% end %>
 

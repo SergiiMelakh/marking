@@ -13,7 +13,6 @@
 			<th>Номер акта</th> 
 			<th>Улица</th> 
 			<th>Сумма, грн</th>
-			<th>Вид разметки</th>
 			<th>Площадь, м2</th>
 			<th>Контроль, м2</th>
 		</tr>		
@@ -23,10 +22,17 @@
 
 						<td><strong><%= act.number_act %></strong></td>
 						<td><%= act.street.street %></td> 
-						<td><%= act.money %></td>		
-						<td></td>
-						<td><strong>Всего : <%= @sum_marking_act[act.number_act.to_s] %></strong></td>
-						<td><strong>Всего : <%= @sum_marking_street[act.street.id] %></strong></td>			
+						<td><%= act.money %></td>
+
+						<td>
+						<% act.act_jobs.each do |act_job| %>		
+						<dl><dd><%= act_job.line.name %> - <%= act_job.square %>, м2</dd></dl>
+						<% end %>
+						<strong>Всего : <%= @sum_marking_act[act.number_act.to_s] %></strong>
+						</td>
+		
+						</td>
+						<td style="vertical-align:bottom"><strong>Всего : <%= @sum_marking_street[act.street.id] %></strong></td>			
 					</tr>
 				<% end %>
 				

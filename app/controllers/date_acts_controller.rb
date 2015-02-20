@@ -4,7 +4,7 @@ class DateActsController < ApplicationController
   # GET /date_acts
   # GET /date_acts.json
   def index
-    @date_acts = DateAct.all
+    @date_acts = DateAct.order(:date)
   end
 
   # GET /date_acts/1
