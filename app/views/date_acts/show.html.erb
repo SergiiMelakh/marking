@@ -25,8 +25,8 @@
 			<td><%= act.street.street %></td> 
 			<td><%= act.money %></td>		
 			<td></td>
-			<td></td>
-			<td></td>			
+			<td><strong>Всего : <%= @sum_marking_act[act.number_act.to_s] %></strong></td>
+			<td><strong>Всего : <%= @sum_marking_street[act.street.id] %></strong></td>			
 		</tr>
 				<% end %>
 				
@@ -40,3 +40,4 @@
 
 <%= link_to 'Изменить', edit_date_act_path(@date_act) %> |
 <%= link_to 'Показать все', date_acts_path %>
+
