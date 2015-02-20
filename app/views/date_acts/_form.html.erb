@@ -12,26 +12,28 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :date %><br>
+    <%= f.label :date, "Дата" %><br>
     <%= f.date_select :date, order: [:month, :year] %>
   </div>
 
 
-  <table>
-    <tr>
-      <th>NumberAct</th><th>Street</th><th>Money</th><th colspan="2"></th>
-    </tr>
+  <table class="table table-hover">
 
     <%= f.fields_for :acts do |act| %>  
+    <tr class="active">
+      <th>Номер акта</th><th>Улица</th><th>Сумма, грн.</th><th colspan="2"></th>
+    </tr>
       <%= render 'acts', a: act %>  
     <% end %>
 
   </table>  
 
-
-
-
   <div class="actions">
-    <%= f.submit %>
+
+    <% if @date_act.new_record? %>
+        <%= f.submit :"Добавить" %>
+    <% else %>
+        <%= f.submit :"Изменить" %>
+    <% end %>
   </div>
 <% end %>

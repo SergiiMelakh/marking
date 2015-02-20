@@ -10,6 +10,7 @@ class DateActsController < ApplicationController
   # GET /date_acts/1
   # GET /date_acts/1.json
   def show
+    
   end
 
   # GET /date_acts/new
