@@ -19,22 +19,18 @@
 		</tr>		
 				<% @date_act.acts.each do |act| %>
 					
-		<tr>
+					<tr>
 
-			<td><strong><%= act.number_act %></strong></td>
-			<td><%= act.street.street %></td> 
-			<td><%= act.money %></td>		
-			<td></td>
-			<td><strong>Всего : <%= @sum_marking_act[act.number_act.to_s] %></strong></td>
-			<td><strong>Всего : <%= @sum_marking_street[act.street.id] %></strong></td>			
-		</tr>
+						<td><strong><%= act.number_act %></strong></td>
+						<td><%= act.street.street %></td> 
+						<td><%= act.money %></td>		
+						<td></td>
+						<td><strong>Всего : <%= @sum_marking_act[act.number_act.to_s] %></strong></td>
+						<td><strong>Всего : <%= @sum_marking_street[act.street.id] %></strong></td>			
+					</tr>
 				<% end %>
 				
 	</table>
-
-
-			
-				
 				
 		
 
