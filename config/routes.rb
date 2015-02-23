@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
+  devise_for :users
+  root 'welcome#index'
   resources :act_jobs
 
   resources :acts
 
   resources :date_acts
 
-  root 'welcome#index'
+  
   get 'reports/filter'  => "reports#filter"
   post 'reports/index'   => "reports#index"  
 

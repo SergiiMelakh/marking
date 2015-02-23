@@ -1,0 +1,7 @@
+    <tr>
+      <td></td>     
+      <td><%= f.collection_select(:line_id, Line.order(:id), :id, :name) %></td>
+      <td><%= f.text_field :square %></td> 
+      <td>
+      <td><%= f.hidden_field :_destroy%><%= link_to "Удалить", '#', class: "remove_fields" %></td>       
+    </tr>

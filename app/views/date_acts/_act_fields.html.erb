@@ -1,0 +1,31 @@
+      <tr>            
+        <td><%= f.text_field :number_act %></td>
+        <td><%= f.collection_select(:street_id, Street.order(:id), :id, :street) %></td> 
+        <td><%= f.text_field :money %></td> 
+        <td><%= f.check_box :_destroy%></td>
+        <td><%= f.label :_destroy,  "Удалить КБ-2" %></td>       
+      </tr>
+
+      <tr>
+        <th></th>
+        <th>Вид разметки</th>
+        <th>Площадь, м2/(1.1 - км.лин)</th>
+        <th></th>
+        <th></th>
+      </tr>
+
+          <%= f.fields_for :act_jobs do |act_job| %>  
+            <%= render 'act_job_fields', f: act_job %>
+          <% end %>
+
+
+          <tr>
+          <td></td>
+          <td><%= link_to_add_fields "Добавить работы", f, :act_jobs %></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          </tr>
+
+
+    

@@ -16,29 +16,35 @@
     <%= f.date_select :date, order: [:day, :month, :year] %>
   </div>
 
-    <table class="table table-hover">
+    <table class="table table-hover" border="1">
       <tr class="active">
         <th>Вид разметки</th>
         <th>Площадь, m2</th>
         <th>Улица</th>
         <th>Дом</th>
         <th>Примечание</th>
-        <th colspan="2"></th>
+        <th></th>
       </tr>
 
       <%= f.fields_for :jobs do |job| %>
-      <tr>
-        <td><%= job.collection_select(:line_id, Line.order(:id), :id, :name) %></td>
-        <td><%= job.text_field :square %></td>
-        <td><%= job.collection_select(:street_id, Street.order(:id), :id, :street) %></td>
-        <td><%= job.text_field :house %></td>
-        <td><%= job.text_field :note %></td>
-        <td><%= job.check_box :_destroy%></td>
-        <td><%= job.label :_destroy, "Удалить" %></td>
+        <%= render 'job_fields', f: job %>
 
       <% end %>
-      </tr>
+
+        <tr>
+        <td><%= link_to_add_fields "Добавить работы", f, :jobs %></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+      
     </table>
+
+    
+      
+    
+
   <div class="actions">
     <% if @date_job.new_record? %>
         <%= f.submit :"Добавить" %>

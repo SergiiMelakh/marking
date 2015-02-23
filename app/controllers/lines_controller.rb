@@ -1,4 +1,5 @@
 class LinesController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_line, only: [:show, :edit, :update, :destroy]
 
   # GET /lines

@@ -1,4 +1,5 @@
 class ActsController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_act, only: [:show, :edit, :update, :destroy]
 
   # GET /acts

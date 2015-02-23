@@ -17,16 +17,26 @@
   </div>
 
 
-  <table class="table table-hover">
+  <table class="table table-hover" border="1">
 
     <%= f.fields_for :acts do |act| %>  
     <tr class="active">
-      <th>Номер акта</th><th>Улица</th><th>Сумма, грн.</th><th colspan="2"></th>
+      <th>Номер акта</th><th>Улица</th><th>Сумма, грн.</th><th></th><th></th>
     </tr>
-      <%= render 'acts', a: act %>  
-    <% end %>
+      <%= render 'act_fields', f: act %>  
+    <% end %>    
 
+
+          <tr>          
+          <td><%= link_to_add_fields "Добавить КБ-2", f, :acts %></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          </tr>
   </table>  
+
+  
 
   <div class="actions">
 

@@ -1,4 +1,5 @@
 class DateActsController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_date_act, only: [:show, :edit, :update, :destroy]
 
   # GET /date_acts

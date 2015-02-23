@@ -1,4 +1,5 @@
 class ActJobsController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_act_job, only: [:show, :edit, :update, :destroy]
 
   # GET /act_jobs
