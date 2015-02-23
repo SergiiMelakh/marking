@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Street.create(street: '')
+Street.create(street: 'Выберите улицу ...')
 Street.create(street: 'бульв.Б.Хмельницкого')
 Street.create(street: 'бульв.Грицевца')
 Street.create(street: 'бульв.Юрьева')
@@ -162,7 +162,7 @@ Street.create(street: 'ул.Якира')
 
 #=====================================
 
-Line.create(name: '', view: '', describe:"")
+Line.create(name: 'Выберите вид разметки ...', view: '', describe:"")
 Line.create(name: '1.1', view: '1_1.gif', describe: "Разделяет транспортные 
   потоки противоположных направлений и обозначает границы полос движения 
   на дорогах; обозначает границы проезжей части, на которые въезд запрещен; 
