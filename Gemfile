@@ -10,6 +10,7 @@ gem 'bootstrap-sass'
 gem 'jquery-turbolinks'
 gem "cocoon"
 gem 'devise'
+gem 'devise-bootstrap-views'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
