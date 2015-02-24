@@ -25,5 +25,12 @@
 
 <%= link_to 'Добавить новый период', new_date_act_path %>
 <hr>
-    <strong>Всего актов КБ-2 на сумму : <%= @sum_money.to_s(:rounded, :precision => 2) %>, грн</strong>
+
+  <ul>
+    <% @sum_all_marking.sort.each do |key, val| %>
+      <li><%= key %> - <%= val.to_s(:rounded, :precision => 2) %> m2</li>
+    <% end %>
+  </ul>
+  <strong>Всего площадь, м2 : <%= @sum_marking.to_s(:rounded, :precision => 2) %></strong><br />
+    <strong>Всего актов КБ-2 на сумму, грн : <%= @sum_money.to_s(:rounded, :precision => 2) %></strong>
 

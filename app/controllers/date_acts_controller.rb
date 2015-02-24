@@ -13,6 +13,11 @@ class DateActsController < ApplicationController
         @sum_money += act.money
       end
     end
+
+    @sum_all_marking = Hash.new
+    @sum_each_marking_temp = ActJob.group(:line_id).sum(:square)
+    @sum_each_marking_temp.each {|key, val| @sum_all_marking["#{Line.find(key).name}"] = val}
+    @sum_marking = @sum_all_marking.values.sum
   end
 
   # GET /date_acts/1
@@ -25,7 +30,7 @@ class DateActsController < ApplicationController
         @date_act.acts.each do |act|
           marking = 0.0
           act.act_jobs.each do |act_job|
-            marking += act_job.square.to_f          
+            marking += act_job.square.to_f
         end
       @sum_marking_act["#{act.number_act}"] = marking
       @sum_money += act.money
@@ -33,6 +38,21 @@ class DateActsController < ApplicationController
 
     @sum_marking_street = Hash.new
     @sum_marking_street = Job.group(:street_id).sum(:square)  
+#================================
+    @sum_all_marking = Hash.new
+    @date_act.each do |date_act|
+      date_act.acts.each do |act|
+        act.act_jobs.each do |act_job|
+
+        end
+      end
+    end
+
+
+    
+    @sum_each_marking_temp = ActJob.group(:line_id).sum(:square)
+    @sum_each_marking_temp.each {|key, val| @sum_all_marking["#{Line.find(key).name}"] = val}
+    @sum_marking = @sum_all_marking.values.sum
 
   end
 
