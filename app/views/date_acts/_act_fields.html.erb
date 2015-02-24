@@ -1,31 +1,33 @@
-      <tr>            
-        <td><%= f.text_field :number_act %></td>
-        <td><%= f.collection_select(:street_id, Street.order(:id), :id, :street) %></td> 
-        <td><%= f.text_field :money %></td> 
-        <td><%= f.check_box :_destroy%></td>
-        <td><%= f.label :_destroy,  "Удалить КБ-2" %></td>       
-      </tr>
-
-      <tr>
-        <th></th>
-        <th>Вид разметки</th>
-        <th>Площадь, м2/(1.1 - км.лин)</th>
-        <th></th>
-        <th></th>
-      </tr>
-
+  <fieldset>              
+        <%= f.text_field :number_act, size: 15, required: true %>
+        <%= f.collection_select(:street_id, Street.order(:id), :id, :street, {}, :style => "width: 235px") %>
+        <%= f.text_field :money, size: 28%>
+        <%= f.check_box :_destroy%>
+        <%= f.label :_destroy,  "Удалить КБ-2" %>     
+  </fieldset>
+      
+        <table class="table table-bordered">
+          <tr class="info">
+            <th width="145"></th>
+            <th width="240">Вид разметки</th>
+            <th width="250px">Площадь, м2/(1.1 - в км.лин)</th>
+            <th></th>
+          </tr>
+            <td></td>
+            <td colspan="3">
           <%= f.fields_for :act_jobs do |act_job| %>  
             <%= render 'act_job_fields', f: act_job %>
           <% end %>
 
+          <p><%= link_to_add_fields "Добавить работы", f, :act_jobs %></p>              
 
-          <tr>
-          <td></td>
-          <td><%= link_to_add_fields "Добавить работы", f, :act_jobs %></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>
 
+            </td>
+        </table>
+
+      
+
+         
+<hr>
 
     

@@ -33,10 +33,9 @@ class DateActsController < ApplicationController
   # GET /date_acts/new
   def new
     @date_act = DateAct.new
-    2.times do 
-      act = @date_act.acts.build
-      4.times { act.act_jobs.build }
-    end
+          act = @date_act.acts.build
+             act.act_jobs.build 
+    
   end
 
   # GET /date_acts/1/edit
@@ -48,12 +47,11 @@ class DateActsController < ApplicationController
       end
     end
 
-    @date_act.acts.each { |act| 3.times {act.act_jobs.build} }
+    @date_act.acts.each { |act| 1.times {act.act_jobs.build} }
 
-    2.times do 
-      act = @date_act.acts.build
-      4.times { act.act_jobs.build }
-    end
+    act = @date_act.acts.build
+       act.act_jobs.build 
+    
   end
 
   # POST /date_acts
