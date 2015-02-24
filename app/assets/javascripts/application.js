@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+
 //= require jquery.turbolinks
 //= require cocoon
 //= require jquery_ujs

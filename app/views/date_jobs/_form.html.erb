@@ -16,30 +16,26 @@
     <%= f.date_select :date, order: [:day, :month, :year] %>
   </div>
 
-    <table class="table table-hover" border="1">
+    <table class="table table-bordered">
       <tr class="active">
-        <th>Вид разметки</th>
-        <th>Площадь, m2</th>
-        <th>Улица</th>
-        <th>Дом</th>
-        <th>Примечание</th>
+        <th width="210px" style="text-align: center">Вид разметки</th>
+        <th width="130px" style="text-align: center">Площадь, m2</th>
+        <th width="240px" style="text-align: center">Улица</th>
+        <th width="108px" style="text-align: center">Дом</th>
+        <th width="390px" style="text-align: center">Примечание</th>
         <th></th>
       </tr>
+    </table>
 
       <%= f.fields_for :jobs do |job| %>
         <%= render 'job_fields', f: job %>
 
       <% end %>
 
-        <tr>
-        <td><%= link_to_add_fields "Добавить работы", f, :jobs %></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
-      
-    </table>
+        
+        <p><%= link_to_add_fields "Добавить работы", f, :jobs %></p>
+        
+ 
 
     
       

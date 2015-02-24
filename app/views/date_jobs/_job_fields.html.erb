@@ -1,8 +1,8 @@
-<tr>
-        <td><%= f.collection_select(:line_id, Line.order(:id), :id, :name) %></td>
-        <td><%= f.text_field :square %></td>
-        <td><%= f.collection_select(:street_id, Street.order(:id), :id, :street) %></td>
-        <td><%= f.text_field :house %></td>
-        <td><%= f.text_field :note %></td>
-        <td><%= f.hidden_field :_destroy %><%= link_to "Удалить", '#', class: "remove_fields" %></td>
-</tr>
+<fieldset>
+        <%= f.collection_select(:line_id, Line.order(:id), :id, :name) %>
+        <%= f.text_field :square, size: 13 %>
+        <%= f.collection_select(:street_id, Street.order(:id), :id, :street) %>
+        <%= f.text_field :house, size: 10 %>
+        <%= f.text_field :note, size: 45 %>
+        <%= f.hidden_field :_destroy %><%= link_to "Удалить", '#', class: "remove_fields" %>
+</fieldset>

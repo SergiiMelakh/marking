@@ -16,12 +16,12 @@ class DateJobsController < ApplicationController
   # GET /date_jobs/new
   def new
     @date_job = DateJob.new
-    3.times {@date_job.jobs.build}
+        @date_job.jobs.build
   end
 
   # GET /date_jobs/1/edit
   def edit
-    3.times {@date_job.jobs.build}
+    @date_job.jobs.build
   end
 
   # POST /date_jobs

@@ -4,21 +4,18 @@
 </p>
 
 
-<table class="table table-hover">
-      <tr  class="active">
-      	<th>№ п/п</th>
-        <th>Вид разметки</th>
-        <th>Площадь, m2</th>
-        <th>Улица</th>
-        <th>Дом</th>
-        <th>Примечание</th>
-       
+<table class="table table-bordered">
+      <tr class="active">      	
+        <th width="210px">Вид разметки</th>
+        <th width="130px">Площадь, m2</th>
+        <th width="240px">Улица</th>
+        <th width="108px">Дом</th>
+        <th width="390px">Примечание</th>       
       </tr>
 
      <% @date_job.jobs.each do |job| %>
 
-      <tr>
-        <td><%= job.id %></td>
+      <tr>        
         <td><%= job.line.name %></td>
         <td><%= job.square %></td>
         <td><%= job.street.street %></td>
@@ -28,12 +25,6 @@
 
       </tr>
     </table>
-
-
-
-
-
-
 
 <%= link_to 'Изменить', edit_date_job_path(@date_job) %> |
 <%= link_to 'Показать все', date_jobs_path %>
