@@ -8,7 +8,6 @@ class DateActsController < ApplicationController
     @date_acts = DateAct.order(:date)
 
     @sum_money = 0.00
-
     @date_acts.each do |date_act|
       date_act.acts.each do |act|
         @sum_money += act.money
@@ -19,30 +18,22 @@ class DateActsController < ApplicationController
   # GET /date_acts/1
   # GET /date_acts/1.json
   def show
-    @sum_marking_act = Hash.new
-    marking = 0.0
-    @date_acts = DateAct.all
-    
-      @date_acts.each do |date_act|
 
-        date_act.acts.each do |act|
+    @sum_marking_act = Hash.new
+    @sum_money = 0.00
+
+        @date_act.acts.each do |act|
           marking = 0.0
           act.act_jobs.each do |act_job|
             marking += act_job.square.to_f          
         end
       @sum_marking_act["#{act.number_act}"] = marking
-      end
-
-    @sum_money = 0.00
-
-      @date_act.acts.each do |act|
-        @sum_money += act.money
-      end
-    
-    end 
+      @sum_money += act.money
+      end    
 
     @sum_marking_street = Hash.new
-    @sum_marking_street = Job.group(:street_id).sum(:square)
+    @sum_marking_street = Job.group(:street_id).sum(:square)  
+
   end
 
   # GET /date_acts/new

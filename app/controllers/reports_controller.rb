@@ -10,20 +10,20 @@ class ReportsController < ApplicationController
     @sum_marking = Hash.new
     
       if params[:filter][:street_id] == "1"
-        DateJob.order(:date).where("date >= ? AND date <= ?", @date_start, @date_end).each do |dj|
-            dj.jobs.each do |j|
-             @jobs_period << j 
-             marking = {"#{j.line.name}" => "#{j.square}".to_f}
+        DateJob.order(:date).where("date >= ? AND date <= ?", @date_start, @date_end).each do |date_job|
+            date_job.jobs.each do |job|
+             @jobs_period << job 
+             marking = {"#{job.line.name}" => "#{job.square}".to_f}
              @sum_marking.merge!(marking){|key, v1, v2| (v1+v2) }            
           end
          end
 
       else
-        DateJob.order(:date).where("date >= ? AND date <= ?", @date_start, @date_end).each do |dj|
-          dj.jobs.each do |j|
-            if j.street_id == params[:filter][:street_id].to_i
-              @jobs_period << j 
-              marking = {"#{j.line.name}" => "#{j.square}".to_f}
+        DateJob.order(:date).where("date >= ? AND date <= ?", @date_start, @date_end).each do |date_job|
+          date_job.jobs.each do |job|
+            if job.street_id == params[:filter][:street_id].to_i
+              @jobs_period << job 
+              marking = {"#{job.line.name}" => "#{job.square}".to_f}
               @sum_marking.merge!(marking){|key, v1, v2| v1+v2}              
             end
           end
