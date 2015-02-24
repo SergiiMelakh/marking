@@ -1,7 +1,7 @@
 <fieldset>
-        <%= f.collection_select(:line_id, Line.order(:id), :id, :name) %>
-        <%= f.text_field :square, size: 13 %>
-        <%= f.collection_select(:street_id, Street.order(:id), :id, :street) %>
+        <%= f.collection_select(:line_id, Line.order(:id), :id, :name, {}, :style => "width: 203px") %><sup style="color:red">*</sup> 
+        <%= f.text_field :square, size: 12 %><sup style="color:red">*</sup> 
+        <%= f.collection_select(:street_id, Street.order(:id), :id, :street, {}, :style => "width: 228px") %><sup style="color:red">*</sup> 
         <%= f.text_field :house, size: 10 %>
         <%= f.text_field :note, size: 45 %>
         <%= f.hidden_field :_destroy %><%= link_to "Удалить", '#', class: "remove_fields" %>

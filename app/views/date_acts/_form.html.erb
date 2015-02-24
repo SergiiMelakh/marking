@@ -30,8 +30,11 @@
     <%= f.fields_for :acts do |act| %>  
       <%= render 'act_fields', f: act %>  
     <% end %>    
-                
+
           <p><%= link_to_add_fields "Добавить акт КБ-2", f, :acts %></p> 
+    <hr>
+          <strong><sup style="color:red">*</sup>  - обязательные для заполнения поля</strong>
+    <hr>
 
   <div class="actions">
 

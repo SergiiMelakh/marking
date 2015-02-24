@@ -5,5 +5,5 @@ class Job < ActiveRecord::Base
 
   validates :line_id,   presence: true
   validates :street_id, presence: true
-  validates :square,    presence: true, numericality: {greater_than_or_equal_to: 0.00}
+  validates :square,    presence: true, numericality: {greater_than: 0.00}
 end

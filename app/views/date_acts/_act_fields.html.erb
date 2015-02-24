@@ -1,7 +1,7 @@
   <fieldset>              
-        <%= f.text_field :number_act, size: 15, required: true %>
-        <%= f.collection_select(:street_id, Street.order(:id), :id, :street, {}, :style => "width: 235px") %>
-        <%= f.text_field :money, size: 28%>
+        <%= f.text_field :number_act, size: 14 %><sup style="color:red">*</sup>
+        <%= f.collection_select(:street_id, Street.order(:id), :id, :street, {}, :style => "width: 233px") %><sup style="color:red">*</sup>
+        <%= f.text_field :money, size: 27%><sup style="color:red">*</sup>
         <%= f.check_box :_destroy%>
         <%= f.label :_destroy,  "Удалить КБ-2" %>     
   </fieldset>

@@ -6,6 +6,14 @@ class DateActsController < ApplicationController
   # GET /date_acts.json
   def index
     @date_acts = DateAct.order(:date)
+
+    @sum_money = 0.00
+
+    @date_acts.each do |date_act|
+      date_act.acts.each do |act|
+        @sum_money += act.money
+      end
+    end
   end
 
   # GET /date_acts/1
@@ -24,6 +32,13 @@ class DateActsController < ApplicationController
         end
       @sum_marking_act["#{act.number_act}"] = marking
       end
+
+    @sum_money = 0.00
+
+      @date_act.acts.each do |act|
+        @sum_money += act.money
+      end
+    
     end 
 
     @sum_marking_street = Hash.new

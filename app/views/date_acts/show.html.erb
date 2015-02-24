@@ -38,7 +38,9 @@
 				
 	</table>
 				
-		
+<hr>
+    <strong>Всего актов КБ-2 на сумму : <%= @sum_money.to_s(:rounded, :precision => 2) %>, грн</strong>
+<hr>		
 
 <%= link_to 'Изменить', edit_date_act_path(@date_act) %> |
 <%= link_to 'Показать все', date_acts_path %>
