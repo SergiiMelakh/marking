@@ -47,7 +47,7 @@
 	<% end %>
 </ul>
 
-  <strong>Всего площадь за период, м2 : <%= @sum_all_marking_period %></strong><br />
+  <strong>Всего площадь за период, м2 : <%= @sum_all_marking_period.to_s(:rounded, :precision => 2) %></strong><br />
     <strong>Всего актов КБ-2 на сумму : <%= @sum_money.to_s(:rounded, :precision => 2) %>, грн</strong>
 <hr>		
 
