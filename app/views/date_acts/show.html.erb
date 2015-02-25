@@ -28,7 +28,7 @@
 						<% act.act_jobs.each do |act_job| %>		
 						<dl><dd><%= act_job.line.name %> - <%= act_job.square %>, м2</dd></dl>
 						<% end %>
-						<strong>Всего : <%= @sum_marking_act[act.number_act.to_s] %></strong>
+						<strong>Всего : <%= @sum_marking_act[act.number_act.to_s].to_s(:rounded, :precision => 2) %></strong>
 						</td>
 		
 						</td>
@@ -43,11 +43,11 @@
 
 <ul>
 	<% @sum_marking_period.each do |key, val| %>
-		<li><%= key %> - <%= val %></li>
+		<li><%= key %> - <%= val %>, m2</li>
 	<% end %>
 </ul>
 
-  <strong>Всего площадь за период, м2 : <%= @sum_all_marking_period.to_s(:rounded, :precision => 2) %></strong><br />
+  <strong>Всего площадь за период : <%= @sum_all_marking_period.to_s(:rounded, :precision => 2) %>, м2</strong><br />
     <strong>Всего актов КБ-2 на сумму : <%= @sum_money.to_s(:rounded, :precision => 2) %>, грн</strong>
 <hr>		
 
