@@ -11,6 +11,7 @@ gem 'jquery-turbolinks'
 gem "cocoon"
 gem 'devise'
 gem 'devise-bootstrap-views'
+gem 'jquery-ui-rails'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
