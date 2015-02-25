@@ -25,35 +25,26 @@ class DateActsController < ApplicationController
   def show
 
     @sum_marking_act = Hash.new
+    @sum_marking_period = Hash.new
+    sum_marking_period_temp = Hash.new
     @sum_money = 0.00
 
         @date_act.acts.each do |act|
           marking = 0.0
+          sum_marking_period_temp.clear
           act.act_jobs.each do |act_job|
             marking += act_job.square.to_f
+            sum_marking_period_temp = { "#{act_job.line.name}" => "#{act_job.square}".to_f }
+            @sum_marking_period.merge!(sum_marking_period_temp){|key, v1, v2| (v1+v2) }
         end
       @sum_marking_act["#{act.number_act}"] = marking
       @sum_money += act.money
       end    
 
-    @sum_marking_street = Hash.new
+      @sum_all_marking_period = @sum_marking_period.values.sum
+      #Вычисляем "контрольную" площадь по каждой улице за весь период
+    @sum_marking_street = Hash.new                          
     @sum_marking_street = Job.group(:street_id).sum(:square)  
-#================================
-    @sum_all_marking = Hash.new
-    @date_act.each do |date_act|
-      date_act.acts.each do |act|
-        act.act_jobs.each do |act_job|
-
-        end
-      end
-    end
-
-
-    
-    @sum_each_marking_temp = ActJob.group(:line_id).sum(:square)
-    @sum_each_marking_temp.each {|key, val| @sum_all_marking["#{Line.find(key).name}"] = val}
-    @sum_marking = @sum_all_marking.values.sum
-
   end
 
   # GET /date_acts/new

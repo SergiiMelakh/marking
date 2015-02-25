@@ -39,12 +39,15 @@
 	</table>
 				
 <hr>
-  <ul>
-    <% @sum_all_marking.sort.each do |key, val| %>
-      <li><%= key %> - <%= val.to_s(:rounded, :precision => 2) %> m2</li>
-    <% end %>
-  </ul>
-  <strong>Всего площадь, м2 : <%= @sum_marking.to_s(:rounded, :precision => 2) %></strong><br />
+  
+
+<ul>
+	<% @sum_marking_period.each do |key, val| %>
+		<li><%= key %> - <%= val %></li>
+	<% end %>
+</ul>
+
+  <strong>Всего площадь за период, м2 : <%= @sum_all_marking_period %></strong><br />
     <strong>Всего актов КБ-2 на сумму : <%= @sum_money.to_s(:rounded, :precision => 2) %>, грн</strong>
 <hr>		
 
