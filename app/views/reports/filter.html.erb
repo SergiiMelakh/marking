@@ -6,19 +6,21 @@
 	
       <tr>
       	<th>Дата начала работ :</th>
-        <td><%= select_date(Date.new(2015, 1, 1), order: [:day, :month, :year], prefix: :date_start) %></td>   
+        <td><%= f.text_field :date_start, :value => "01/01/2015", class: "datepicker" %></td>   
       </tr>
 
       <tr>
       	<th>Дата окончания работ :</th>
-        <td><%= select_date(Date.today, order: [:day, :month, :year], prefix: :date_end) %></td>
+        <td><%= f.text_field :date_end, :value => "#{Time.now.strftime('%d/%m/%Y')}", class: "datepicker" %></td>
       </tr>
 
       <tr>
       	<th>Улица :</th>
         <td><%= f.collection_select(:street_id, Street.order(:id), :id, :street) %></td>
       </tr>
-      </table>
+</table>
+
+
       <%= f.submit :"Поиск", class: "btn btn-sm btn-default" %>
       <% end %>
 

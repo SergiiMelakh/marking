@@ -1,5 +1,7 @@
-<h1>Перечень работ с <%= @date_start.strftime("%d/%m/%Y")%> по <%= @date_end.strftime("%d/%m/%Y") %>.</h1>
+<h1>Перечень работ с <%= @date_start %> по <%= @date_end %>.</h1>
 
+<p><%= link_to :"Изменить параметры поиска", reports_filter_path, class: "btn btn-sm btn-default" %></p>
+<p></p>
 <% if @jobs_period.empty? %>
 <hr>
   <p><h3>Записей не найдено</h3></p>
@@ -16,15 +18,15 @@
     <th>Примечание</th>
   </tr>
 
-<% @jobs_period.each do |j| %>
+<% @jobs_period.each do |job| %>
   
   <tr>   
-    <td><%= j.date_job.date.strftime("%d/%m/%Y") %></td>
-    <td><%= j.line.name %></td>
-    <td><%= j.square %></td>
-    <td><%= j.street.street %></td>
-    <td><%= j.house %></td>
-    <td><%= j.note %></td>
+    <td><%= link_to job.date_job.date.strftime("%d/%m/%Y"), date_job_path(job.date_job.id) %></td>
+    <td><%= job.line.name %></td>
+    <td><%= job.square %></td>
+    <td><%= job.street.street %></td>
+    <td><%= job.house %></td>
+    <td><%= job.note %></td>
   </tr>
   <% end %>
 
@@ -39,4 +41,6 @@
 <strong>Всего площадь : <%= @sum_all_marking.to_s(:rounded, :precision => 2) %>, м2</strong>
 
 <% end %>
+<p></p>
+<p><%= link_to :"Изменить параметры поиска", reports_filter_path, class: "btn btn-sm btn-default" %></p>
 
