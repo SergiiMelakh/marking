@@ -29,7 +29,8 @@
 
       <%= f.fields_for :jobs do |job| %>
         <%= render 'job_fields', f: job %>
-      <% end %>        
+      <% end %>   
+        
         <p><%= link_to_add_fields "Добавить работы", f, :jobs %></p>    
     
     <hr>
