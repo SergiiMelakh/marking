@@ -1,4 +1,4 @@
-<h1>Перечень работ с <%= @date_start %> по <%= @date_end %>.</h1>
+<h1>Перечень работ с <%= @date_start.strftime("%d/%m/%Y") %> по <%= @date_end.strftime("%d/%m/%Y") %>.</h1>
 
 <p><%= link_to :"Изменить параметры поиска", reports_filter_path, class: "btn btn-sm btn-default" %></p>
 <p></p>

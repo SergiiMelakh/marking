@@ -4,8 +4,8 @@ class ReportsController < ApplicationController
   end
 
   def index
-    @date_start = params[:filter][:date_start]
-    @date_end = params[:filter][:date_end]
+    @date_start = params[:filter][:date_start].to_date
+    @date_end = params[:filter][:date_end].to_date
     @jobs_period = Array.new
     @sum_marking = Hash.new
     
