@@ -1,5 +1,6 @@
  <fieldset>      
       <%= f.collection_select(:line_id, Line.order(:id), :id, :name, {}, :style => "width: 228px") %><sup style="color:red">*</sup>
       <%= f.text_field :square, size: 27%><sup style="color:red">*</sup>      
-      <%= f.hidden_field :_destroy%><%= link_to "Удалить", '#', class: "remove_fields" %>      
+      <%= f.hidden_field :_destroy%><%= link_to "Удалить", '#', class: "remove_fields" %> 
+      <p></p>     
  </fieldset>
