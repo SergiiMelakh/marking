@@ -21,7 +21,10 @@ class DateJobsController < ApplicationController
 
   # GET /date_jobs/1/edit
   def edit
+    @date_job.date = @date_job.date.strftime('%d/%m/%Y')
     @date_job.jobs.build
+
+
   end
 
   # POST /date_jobs

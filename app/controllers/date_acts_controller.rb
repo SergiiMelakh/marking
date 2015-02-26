@@ -57,6 +57,8 @@ class DateActsController < ApplicationController
 
   # GET /date_acts/1/edit
   def edit
+
+    @date_act.date = @date_act.date.strftime('%d/%m/%Y')
     #Chenge KM/LIME to M2 for LINE 1.1
     @date_act.acts.each do |act|
       act.act_jobs.each do |act_job|

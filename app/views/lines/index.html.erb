@@ -20,7 +20,7 @@
       <tr>
         <td><%= line.id %></td>
         <td><%= link_to line.name, line %></td>
-        <td><%= link_to 'Изменить', edit_line_path(line) %></td>
+        <td style="text-align: right"><%= link_to 'Изменить', edit_line_path(line) %></td>
         <td><%= link_to 'Удалить', line, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
       </tr>
     <% end %>

@@ -20,7 +20,7 @@
       <tr>
         
         <td><%= link_to date_job.date.strftime("%d/%m/%Y"), date_job %></td>
-        <td><%= link_to 'Изменить', edit_date_job_path(date_job) %></td>
+        <td style="text-align: right"><%= link_to 'Изменить', edit_date_job_path(date_job) %></td>
         <td><%= link_to 'Удалить', date_job, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
       </tr>
     <% end %>

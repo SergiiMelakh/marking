@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Журнал актов КБ-2</h1>
+<%= link_to 'Добавить новый период', new_date_act_path, class: "btn btn-sm btn-default" %>
+<p></p>
 
 <table class="table table-bordered">
   <thead>
@@ -14,7 +16,7 @@
     <% @date_acts.each do |date_act| %>
       <tr>
         <td><%= link_to date_act.date.strftime("%m/%Y"), date_act %></td>
-        <td><%= link_to 'Изменить', edit_date_act_path(date_act) %></td>
+        <td style="text-align: right"><%= link_to 'Изменить', edit_date_act_path(date_act) %></td>
         <td><%= link_to 'Удалить', date_act, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
       </tr>
     <% end %>

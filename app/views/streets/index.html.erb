@@ -21,7 +21,7 @@
       <tr>
         <td><%= street.id %></td>
         <td><%= street.street %></td>
-        <td><%= link_to t('Изменить'), edit_street_path(street) %></td>
+        <td style="text-align: right"><%= link_to t('Изменить'), edit_street_path(street) %></td>
         <td><%= link_to t('Удалить'), street, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
       </tr>
     <% end %>

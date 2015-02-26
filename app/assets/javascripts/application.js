@@ -11,11 +11,19 @@
 // about supported directives.
 //
 //= require jquery
-
+//= require jquery_ujs
 //= require jquery.turbolinks
 //= require jquery-ui
 //= require bootstrap.min
 //= require turbolinks
 //= require_tree .
+
+ $(function() {
+	$( ".datepicker" ).datepicker({
+		dateFormat: "dd/mm/yy",
+		dayNamesMin: [ "Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс" ]
+	});
+
+});
 
 
