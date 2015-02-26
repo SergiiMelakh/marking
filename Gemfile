@@ -8,9 +8,7 @@ gem 'rails-i18n'
 gem 'rails', '4.2.0'
 gem 'bootstrap-sass'
 gem 'jquery-turbolinks'
-gem "cocoon"
 gem 'devise'
-gem 'devise-bootstrap-views'
 gem 'jquery-ui-rails'
 # Use postgresql as the database for Active Record
 gem 'pg'

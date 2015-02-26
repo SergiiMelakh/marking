@@ -27,9 +27,9 @@
   <div class="actions">
 
     <% if @line.new_record? %>
-        <%= f.submit :"Добавить" %>
+        <%= f.submit :"Добавить", class: "btn btn-sm btn-default" %>
     <% else %>
-        <%= f.submit :"Изменить" %>
+        <%= f.submit :"Изменить", class: "btn btn-sm btn-default" %>
     <% end %>
 
   </div>

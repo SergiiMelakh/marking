@@ -19,7 +19,7 @@
         <td><%= f.collection_select(:street_id, Street.order(:id), :id, :street) %></td>
       </tr>
       </table>
-      <%= f.submit :"Поиск" %>
+      <%= f.submit :"Поиск", class: "btn btn-sm btn-default" %>
       <% end %>
 
 

@@ -13,8 +13,6 @@
 //= require jquery
 
 //= require jquery.turbolinks
-//= require cocoon
-//= require jquery_ujs
 //= require jquery-ui
 //= require bootstrap.min
 //= require turbolinks
